@@ -1,0 +1,165 @@
+{
+  "name": "Chat  simples",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        -256
+      ],
+      "id": "c81a57f3-595f-4df4-9e0c-8727257ba5fb",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -208,
+        -256
+      ],
+      "id": "081b55fd-fbd1-40d7-b309-3fc149e9827c",
+      "name": "When chat message received",
+      "webhookId": "513f5358-d074-4092-8274-fd126d5b6ed8",
+      "notes": "Olá"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "83e32864-bc91-4102-9ca4-d1cbe39b0a51",
+              "name": "sessionId",
+              "value": "={{ $json.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "739ead81-96cd-418a-938a-8800e09efe19",
+              "name": "chatInput",
+              "value": "={{ $json.chatInput }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        -256
+      ],
+      "id": "cd37ce20-27ed-4b06-bddf-6391f08e2503",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "16c9o-XMHfHirp5ihxOyg0EqEkdr4O1I5FbCfi-QIJkM",
+          "mode": "list",
+          "cachedResultName": "Captura de Chat",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/16c9o-XMHfHirp5ihxOyg0EqEkdr4O1I5FbCfi-QIJkM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Conversa",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/16c9o-XMHfHirp5ihxOyg0EqEkdr4O1I5FbCfi-QIJkM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Id": "={{ $json.sessionId }}",
+            "Conversa": "={{ $json.chatInput }}"
+          },
+          "matchingColumns": [
+            "Id"
+          ],
+          "schema": [
+            {
+              "id": "Id",
+              "displayName": "Id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Conversa",
+              "displayName": "Conversa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        -256
+      ],
+      "id": "65f22a07-1c45-4efd-bb18-9bc0a1e1a4d6",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "WYIWnJVsjE7obxAw",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "6bc16a64-2dd7-4d20-be58-9d3bd9cac2aa",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c41ad2e560da07d5c80c054fb812c66ed07fda15d43e9d30e45b624bab6991d0"
+  },
+  "id": "_sV5Ow6WG6egzBej5exeh",
+  "tags": []
+}

@@ -1,0 +1,175 @@
+{
+  "name": "Call Web APP",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1328,
+        -256
+      ],
+      "id": "273252b7-7e7c-4706-83c3-e4029d87de2f",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:18080/ping",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -1136,
+        -256
+      ],
+      "id": "593cd330-5693-42d7-b83b-fde3b230a6cf",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1LAe24bgEVdsSRu8L3pREocj2bRtHvD_bW28sbQMz3CM",
+          "mode": "list",
+          "cachedResultName": "n8n-app-test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LAe24bgEVdsSRu8L3pREocj2bRtHvD_bW28sbQMz3CM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "values",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LAe24bgEVdsSRu8L3pREocj2bRtHvD_bW28sbQMz3CM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "data": "={{ $json.date }}",
+            "Resposta": "={{ $json.data }}"
+          },
+          "matchingColumns": [
+            "Resposta"
+          ],
+          "schema": [
+            {
+              "id": "Resposta",
+              "displayName": "Resposta",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "data",
+              "displayName": "data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -720,
+        -256
+      ],
+      "id": "faa6def9-c306-47ac-a03a-40c2c27c8cc2",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "TmoW69uK7WIsFtOF",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c5af405-8047-4b02-8e44-3d90d5faf7d3",
+              "name": "date",
+              "value": "={{ $now.setZone('America/Sao_Paulo').format('yyyy-MM-dd HH:mm:ss') }}\n",
+              "type": "string"
+            },
+            {
+              "id": "1a3b3da4-b8c0-4ccb-a775-10d3ce8510e9",
+              "name": "data",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -912,
+        -256
+      ],
+      "id": "7a076f4b-681e-4b6e-9313-1fc53307c374",
+      "name": "Edit Fields1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "834cea45-96f3-465b-ba62-bab5689a8dfe",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c41ad2e560da07d5c80c054fb812c66ed07fda15d43e9d30e45b624bab6991d0"
+  },
+  "id": "u6cipRXjPiTjN0FpokI4H",
+  "tags": []
+}
