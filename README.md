@@ -10,7 +10,7 @@
       mkdir n8n-compose
       cd n8n-compose
 
-  ## 2 - Dentro do diretório n8n-compose, crie um arquivo .env com o conteúdo a seguir. Ajuste as variáveis de acordo com suas necessidades:
+  ## 2 - Dentro do diretório n8n-compose, crie um arquivo .env com o conteúdo a seguir. Ajuste as variáveis de acordo com suas necessidades: ##
 
    # DOMAIN_NAME and SUBDOMAIN together determine where n8n will be reachable from
    # The top level domain to serve from
