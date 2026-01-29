@@ -12,7 +12,7 @@
 
   ## 2 - Dentro do diretório n8n-compose, crie um arquivo .env com o conteúdo a seguir. Ajuste as variáveis de acordo com suas necessidades: ##
 
-
+```sh
    # DOMAIN_NAME and SUBDOMAIN together determine where n8n will be reachable from
    # The top level domain to serve from
    DOMAIN_NAME=example.com
@@ -28,12 +28,12 @@
 
    # The email address to use for the TLS/SSL certificate creation
    SSL_EMAIL=user@example.com
-
+```
   ## 3 - Crie uma nova pasta na raiz do projeto:
       mkdir local-files
 
   ## 4 - Crie o arquivo compose.yaml na pasta raiz do projeto com o conteúdo a seguir:
-
+```sh
 services:
   traefik:
     image: "traefik"
@@ -93,7 +93,7 @@ services:
 volumes:
   n8n_data:
   traefik_data:
-
+```
   ## 5 - Subindo o n8n (executar na pasta onde o arquivo compose.yaml se encontra):
      sudo docker compose up -d
 
