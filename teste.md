@@ -1,4 +1,4 @@
-✅ kubectl port-forward   --address 0.0.0.0   svc/keda-php-demo 18080:80 -n keda-demo
+✅ kubectl port-forward   --address 0.0.0.0   svc/keda-php-demo 18080:8080 -n keda-demo
 
 ✅ Host acessa http://localhost:18080/ping
 
