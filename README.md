@@ -1,10 +1,12 @@
 ### Projeto básico para início de conhecimento sobre a plataforma n8n
 
 - Esta implementação foi feita usando Docker Composer (previamente instalado) rodando em uma máquina Linux Ubuntu 24.04 com arquitetura AMDx86
+- O n8n é uma plataforma de automação de fluxo de trabalho que permite criar e automatizar processos sem a necessidade de codificação. 
+- Este projeto pessoal foi criado para fins de aprendizado e exploração das funcionalidades do n8n, instalado em ambiente local e utilizando uma configuração básica para facilitar a compreensão e o uso da plataforma.
 
 - ## Instalação:
 - Abaixo os passos básicos para instalação. O link com a documentação oficial segue ao final deste documento.
-- Esta é a instalação básica para iniciar um projeto do zero. Os arquivos deste repositório foram alterados conforme a solução evouliu em meu ambiente.
+- Esta é a instalação básica para iniciar um projeto do zero. Os arquivos deste repositório foram alterados conforme a solução evoluiu em meu ambiente.
   
   ## 1 - Crie um diretório para armazenar a configuração do n8n e os arquivos do Docker Compose e navegue:
       mkdir n8n-compose
@@ -32,7 +34,7 @@
   ## 3 - Crie uma nova pasta na raiz do projeto:
       mkdir local-files
 
-  ## 4 - Crie o arquivo compose.yaml na pasta raiz do projeto com o conteúdo a seguir:
+  ## 4 - Crie o arquivo compose.yaml (ou use deste repositório) na pasta raiz do projeto com o conteúdo a seguir:
 ```sh
 services:
   traefik:
