@@ -2,7 +2,7 @@
 
 - Esta implementação foi feita usando Docker Composer (previamente instalado) rodando em uma máquina Linux Ubuntu 24.04 com arquitetura AMDx86
 - O n8n é uma plataforma de automação de fluxo de trabalho que permite criar e automatizar processos sem a necessidade de codificação. 
-- Este projeto pessoal foi criado para fins de aprendizado e exploração das funcionalidades do n8n, instalado em ambiente local e utilizando uma configuração básica para facilitar a compreensão e o uso da plataforma.
+- Este projeto pessoal foi criado para fins de aprendizado e exploração das funcionalidades do n8n, instalado em ambiente local e utilizando uma configuração básica para facilitar a compreensão e o uso da plataforma. Os fluxos existentes na pasta `workflows` foram criados por mim para meus testes mas não fazem parte desta documentação.
 
 - ## Instalação:
 - Abaixo os passos básicos para instalação. O link com a documentação oficial segue ao final deste documento.
